@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Post ;
+
 class PostsController extends Controller
 {
     /**
@@ -15,7 +17,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return "<h2>This is index action</h2>";
+        return view('posts.index');
     }
 
     /**
@@ -36,7 +38,10 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        var_dump($request);
+        //return $request->get('title');
+        //return $request->title;
+        Post::create(['title' => $request->title]);
+        return redirect('/posts');
     }
 
     /**
