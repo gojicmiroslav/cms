@@ -10,7 +10,7 @@
 	<h1>All Posts</h1>
 
 	@foreach($posts as $post)
-		<p>{{ $post->title }}</p>
+		<p><a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a></p>
 	@endforeach
 
 @endsection
