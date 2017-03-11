@@ -13,6 +13,9 @@
 		<p><a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a></p>
 	@endforeach
 
+	<hr/>
+	<p><a href="{{ route("posts.create") }}">Create New Post</a></p>
+
 @endsection
 
 @section('footer')

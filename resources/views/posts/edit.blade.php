@@ -5,12 +5,27 @@
 @section('content')
 	<h3>Edit Post</h3>
 
-	<form action="/posts" method='PUT'>
+	{{-- <form action="/posts/{{ $post->id }}" method='POST'> --}}
+	{!! Form::model($post, ['action' => ['PostsController@update', $post], 'method' => 'PUT'])  !!}
 		{{ csrf_field() }}
-		<input type="text" name="title" value="{{ $post->title }}">		
+		
+		{{-- <input type="hidden" name="_method" value="PUT"> --}}
 
-		<input type="submit" name="Submit" value="Create Post">
-	</form>
+		{{-- <input type="text" name="title" value="{{ $post->title }}"> --}}
+		<div class="form-group">
+			{!! Form::label('title', 'Title:') !!}
+			{!! Form::text('title', $post->title, ['class' => 'form-control']) !!}
+		</div>
+
+		<div class="form-group">
+			{!! Form::label('content', 'content:') !!}
+			{!! Form::text('content', $post->description, ['class' => 'form-control']) !!}
+		</div>
+
+		{{-- <input type="submit" name="Submit" value="Edit Post"> --}}
+		{!! Form::submit('Edit Post', ['class'=> 'btn btn-primary']) !!}
+
+	{!! Form::close() !!}
 
 @endsection
 
