@@ -15,6 +15,7 @@ use App\Post;
 use App\Phone;
 use App\Role;
 use App\Country;
+use Carbon\Carbon;
 
 Route::get('/', function () {
      return view('welcome');
@@ -198,6 +199,24 @@ Route::get('/user/country/{country_id}', function($country_id){
 	}
 
 	return $posts;
+});
+
+Route::get('/dates', function(){
+	$date = new DateTime('+1 week');
+
+	echo $date->format('d-m-Y');
+
+	echo "<br>";
+	echo Carbon::now();
+
+	echo "<br>";
+	echo Carbon::now()->diffForHumans();
+
+	echo "<br>";
+	echo Carbon::now()->addDays(10)->diffForHumans();
+
+	echo "<br>";
+	echo Carbon::now()->subMonth(3)->diffForHumans();
 });
 
 

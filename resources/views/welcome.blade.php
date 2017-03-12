@@ -13,6 +13,7 @@
       <h3>Posts</h3>
       <p><a href="/posts">All Posts</a></p>
       <p><a href="/posts/create">Create post</a></p>
+      <p><a href="/dates">Dates</a></p>
     </div>
   </div>
 </body>
