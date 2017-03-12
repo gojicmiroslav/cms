@@ -38,4 +38,14 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Role');
     }
+
+    public function getNameAttribute($value)
+    {
+        return strtoupper($value);
+    }
+
+    public function setNameAttribute($value)
+    {   
+        $this->attributes['name'] = strtoupper($value);
+    }
 }
